@@ -2,18 +2,47 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% block meta %}
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% endblock %}
 
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <script src="{% static 'js/jquery.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    {% block extra_meta %}
+    {% endblock %}
 
-    <title>Boutique Ado</title>
+    {% block corecss%}
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    {% endblock %}
+
+    {% block extra_css %}
+    {% endblock %}
+
+    {% block corejs %}
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    {% endblock %}
+
+    {% block extra_js %}
+    {% endblock %}
+
+    <title>Boutique Ado {% block extra_title %}{% endblock %}</title>
   </head>
   <body>
+    <header class="container-fluid fixed-top"></header>
 
+    {% if messages %}
+    <div class="message-container"></div>
+    {% endif %}
+
+    {% block page_header %}
+    {% endblock %}
+
+    {% block content %}
+    {% endblock %}
+
+    {% block postloadjs %}
+    {% endblock %}
 
   </body>
 </html>
