@@ -4,4 +4,4 @@ __pycache__
 .env.py
 env.py
 .env
-venv/
+venv/staticfiles/
