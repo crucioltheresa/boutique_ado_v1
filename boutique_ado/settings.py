@@ -30,11 +30,22 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = "DEVELOPMENT" in os.environ
 
+if not DEBUG:
+    SESSION_COOKIE_SECURE = True
+    SESSION_COOKIE_HTTPONLY = True
+    CSRF_COOKIE_SECURE = True
+    CSRF_COOKIE_HTTPONLY = True
+
 ALLOWED_HOSTS = [
     "127.0.0.1",  # vs code preview
     "localhost",  # listen for stripe webhooks
     "boutique-ado-mt-bb71af4e5c6e.herokuapp.com",  # heroku application
     "boutique-ado-mt.herokuapp.com",  # heroku application
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://boutique-ado-mt-bb71af4e5c6e.herokuapp.com",
+    "https://boutique-ado-mt.herokuapp.com",
 ]
 
 
